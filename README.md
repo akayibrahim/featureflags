@@ -9,7 +9,7 @@
 <dependency>
    <groupId>io.github.akayibrahim</groupId>
    <artifactId>featureflags</artifactId>
-   <version>1.0.0</version>
+   <version>1.0.1</version>
 </dependency>
 ```
 2 . Add below import annotation to your spring boot main class.
