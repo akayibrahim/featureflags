@@ -10,6 +10,6 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface FeatureFlags {
+public @interface FeatureFlag {
     String enabled();
 }

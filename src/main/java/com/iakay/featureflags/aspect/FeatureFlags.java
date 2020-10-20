@@ -1,6 +1,6 @@
 package com.iakay.featureflags.aspect;
 
-import com.iakay.featureflags.annotation.FeatureFlags;
+import com.iakay.featureflags.annotation.FeatureFlag;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -17,7 +17,7 @@ import java.lang.reflect.Method;
  */
 @Aspect
 @Configuration
-public class FeatureFlagsAspect {
+public class FeatureFlags {
 
     public static final String TRUE = "true";
     public static final String FALSE = "false";
@@ -25,11 +25,11 @@ public class FeatureFlagsAspect {
     @Autowired
     private Environment environment;
 
-    @Around(value = "@annotation(com.iakay.featureflags.annotation.FeatureFlags)")
+    @Around(value = "@annotation(com.iakay.featureflags.annotation.FeatureFlag)")
     public Object beforeMethodExecution(ProceedingJoinPoint joinPoint) throws Throwable {
-        FeatureFlags featureFlags = getFeatureFlags(joinPoint);
-        String value = getFeatureFlagParameter(featureFlags);
-        checkParameterPattern(featureFlags, value);
+        FeatureFlag featureFlag = getFeatureFlag(joinPoint);
+        String value = getFeatureFlagParameter(featureFlag);
+        checkParameterPattern(featureFlag, value);
         boolean enabled = Boolean.valueOf(value);
         if (enabled) {
             return joinPoint.proceed();
@@ -37,19 +37,19 @@ public class FeatureFlagsAspect {
         return null;
     }
 
-    private void checkParameterPattern(FeatureFlags featureFlags, String value) throws PropertyException {
+    private void checkParameterPattern(FeatureFlag featureFlag, String value) throws PropertyException {
         if (!TRUE.equalsIgnoreCase(value) && !FALSE.equalsIgnoreCase(value)) {
-            throw new PropertyException(featureFlags.enabled() + CAN_ONLY_BE_TRUE_FALSE);
+            throw new PropertyException(featureFlag.enabled() + CAN_ONLY_BE_TRUE_FALSE);
         }
     }
 
-    private String getFeatureFlagParameter(FeatureFlags featureFlags) {
+    private String getFeatureFlagParameter(FeatureFlag featureFlags) {
         return environment.getProperty(featureFlags.enabled());
     }
 
-    private FeatureFlags getFeatureFlags(ProceedingJoinPoint joinPoint) {
+    private FeatureFlag getFeatureFlag(ProceedingJoinPoint joinPoint) {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();
-        return method.getAnnotation(FeatureFlags.class);
+        return method.getAnnotation(FeatureFlag.class);
     }
 }

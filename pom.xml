@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>io.github.akayibrahim</groupId>
 	<artifactId>featureflags</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<name>featureflags</name>
 	<url>http://maven.apache.org</url>
 	<description>FeatureFlags for Spring Boot</description>
