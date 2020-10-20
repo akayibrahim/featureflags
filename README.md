@@ -39,3 +39,5 @@ featureFlags:
   demo: true
 ```
 
+**NOTE: if your method has return object, don't forget null check when the method call.**
+
