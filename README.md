@@ -7,9 +7,9 @@
 1 . Add below dependency to pom.xml of your project
 ```java
 <dependency>
-		<groupId>io.github.akayibrahim</groupId>
-		<artifactId>featureflags</artifactId>
-		<version>1.0.0</version>
+	<groupId>io.github.akayibrahim</groupId>
+	<artifactId>featureflags</artifactId>
+	<version>1.0.0</version>
 </dependency>
 ```
 2 . Add below import annotation to your spring boot main class.
