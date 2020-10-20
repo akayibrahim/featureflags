@@ -13,12 +13,12 @@
 </dependency>
 ```
 2 . Add below import annotation to your spring boot main class.
-`@Import(FeatureFlagsAspect.class)`
+`@Import(FeatureFlags.class)`
 
 Example usage:
 ```java
 @SpringBootApplication
-@Import(FeatureFlagsAspect.class)
+@Import(FeatureFlags.class)
 public class DemoApplication {
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
@@ -27,7 +27,7 @@ public class DemoApplication {
 ```
 3 . Now you are ready. You can add FeatureFlags annotation to your methods like below.
 ```java
-@FeatureFlags(enabled = "featureFlags.demo")
+@FeatureFlag(enabled = "featureFlags.demo")
 @Override
 public void demo() {
 	System.out.println("Demo Feature Flags");
@@ -38,3 +38,4 @@ public void demo() {
 featureFlags:
   demo: true
 ```
+
