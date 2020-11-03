@@ -7,6 +7,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.core.env.Environment;
 
 import javax.xml.bind.PropertyException;
@@ -17,6 +18,7 @@ import java.lang.reflect.Method;
  */
 @Aspect
 @Configuration
+@Order(0)
 public class FeatureFlags {
 
     public static final String TRUE = "true";
