@@ -39,6 +39,6 @@ featureFlags:
   demo: true
 ```
 
-**NOTE: if your method has return object, don't forget null check when the method call.**
-**NOTE: Feature Flags can not use for Aspect.**
-
+NOTES: 
+- 	if your method has return object, don't forget null check when the method call.
+- 	Feature Flags can not use for Aspect.
