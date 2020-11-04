@@ -1,4 +1,4 @@
-# Feature Flags for JAVA
+# Feature Flags Annotation for Spring (Java)
 
 #### This project is for toggle off/on of java features.
 
