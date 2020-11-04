@@ -1,4 +1,4 @@
-# Feature Flags for JAVA
+# Feature Flags Annotation for Spring (Java)
 
 #### This project is for toggle off/on of java features.
 
@@ -9,7 +9,7 @@
 <dependency>
    <groupId>io.github.akayibrahim</groupId>
    <artifactId>featureflags</artifactId>
-   <version>1.0.2</version>
+   <version>1.0.3</version>
 </dependency>
 ```
 2 . Add below import annotation to your spring boot main class.
@@ -39,5 +39,6 @@ featureFlags:
   demo: true
 ```
 
-**NOTE: if your method has return object, don't forget null check when the method call.**
-
+NOTES: 
+- 	if your method has return object, don't forget null check when the method call.
+- 	Feature Flags can not use for Aspect.
