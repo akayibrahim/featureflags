@@ -20,12 +20,15 @@ import java.lang.reflect.Method;
 @Configuration
 @Order(0)
 public class FeatureFlags {
-
     public static final String TRUE = "true";
     public static final String FALSE = "false";
     public static final String CAN_ONLY_BE_TRUE_FALSE = " can only be true/false!";
-    @Autowired
     private Environment environment;
+
+    @Autowired
+    public FeatureFlags(Environment environment) {
+        this.environment = environment;
+    }
 
     @Around(value = "@annotation(com.iakay.featureflags.annotation.FeatureFlag)")
     public Object beforeMethodExecution(ProceedingJoinPoint joinPoint) throws Throwable {
