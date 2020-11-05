@@ -1,4 +1,4 @@
-package com.iakay.featureflags.annotation;
+package io.github.akayibrahim.featureflags.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

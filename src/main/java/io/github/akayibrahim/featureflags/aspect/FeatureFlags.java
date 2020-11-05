@@ -1,6 +1,6 @@
-package com.iakay.featureflags.aspect;
+package io.github.akayibrahim.featureflags.aspect;
 
-import com.iakay.featureflags.annotation.FeatureFlag;
+import io.github.akayibrahim.featureflags.annotation.FeatureFlag;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -30,7 +30,7 @@ public class FeatureFlags {
         this.environment = environment;
     }
 
-    @Around(value = "@annotation(com.iakay.featureflags.annotation.FeatureFlag)")
+    @Around(value = "@annotation(io.github.akayibrahim.featureflags.annotation.FeatureFlag)")
     public Object beforeMethodExecution(ProceedingJoinPoint joinPoint) throws Throwable {
         FeatureFlag featureFlag = getFeatureFlag(joinPoint);
         String value = getFeatureFlagParameter(featureFlag);

@@ -1,7 +1,7 @@
-package com.iakay.featureflags;
+package io.github.akayibrahim.featureflags;
 
-import com.iakay.featureflags.annotation.FeatureFlag;
-import com.iakay.featureflags.aspect.FeatureFlags;
+import io.github.akayibrahim.featureflags.annotation.FeatureFlag;
+import io.github.akayibrahim.featureflags.aspect.FeatureFlags;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.junit.Before;
