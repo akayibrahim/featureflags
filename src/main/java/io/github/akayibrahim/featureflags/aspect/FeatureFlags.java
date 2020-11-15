@@ -22,7 +22,7 @@ import java.lang.reflect.Method;
 public class FeatureFlags {
     public static final String TRUE = "true";
     public static final String FALSE = "false";
-    public static final String CAN_ONLY_BE_TRUE_FALSE = " can only be true/false!";
+    public static final String MISSING_OR_WRONG_TYPE_TRUE_FALSE = " parameter missing or wrong type (true/false).";
     private Environment environment;
 
     @Autowired
@@ -44,7 +44,7 @@ public class FeatureFlags {
 
     private void checkParameterPattern(FeatureFlag featureFlag, String value) throws PropertyException {
         if (!TRUE.equalsIgnoreCase(value) && !FALSE.equalsIgnoreCase(value)) {
-            throw new PropertyException(featureFlag.enabled() + CAN_ONLY_BE_TRUE_FALSE);
+            throw new PropertyException(featureFlag.enabled() + MISSING_OR_WRONG_TYPE_TRUE_FALSE);
         }
     }
 
